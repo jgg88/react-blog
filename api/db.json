@@ -55,6 +55,20 @@
       "date": "2019-03-06T03:47:58.394Z",
       "body": "text area test two",
       "id": 8
+    },
+    {
+      "author": "Joshua",
+      "title": "Test after refactoring",
+      "date": "2019-03-06T04:03:15.341Z",
+      "body": "Blogasaurus Rex",
+      "id": 9
+    },
+    {
+      "author": "Joshua",
+      "title": "prevent Default?",
+      "date": "2019-03-06T04:15:27.376Z",
+      "body": "testing the text area",
+      "id": 10
     }
   ]
 }

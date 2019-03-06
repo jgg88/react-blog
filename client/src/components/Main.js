@@ -12,7 +12,7 @@ export default class Main extends Component {
 
     componentDidMount() {
         fetch('http://localhost:3001/posts')
-            .then(response => response.json())
+            .then(res => res.json())
             .then(json => {
                 this.setState({
                     posts: json,
@@ -29,17 +29,19 @@ export default class Main extends Component {
         });
     }
 
-    updateBlog =(newPost) => {
+    updateBlog = newPost => {
         this.setState({posts: [...this.state.posts, newPost]});
     }
 
     render() {
-        const {showPosts, showCreateComponent} = this.state;
+        const {posts, showPosts, showCreateComponent} = this.state;
         return (
-            <div>
-                <button onClick={this.toggleNewBlog}>New Blog</button>
-                {showCreateComponent && <Create updateBlog={(newPost) => this.updateBlog(newPost)}/>}
-                {showPosts && <Blog posts={this.state.posts}/>}
+            <div className="main">
+                <button onClick={this.toggleNewBlog} className="new-btn">NEW</button>
+
+                {showCreateComponent && <Create updateBlog={newPost => this.updateBlog(newPost)} />}
+
+                {showPosts && <Blog posts={posts} />}
             </div>
         );
     };

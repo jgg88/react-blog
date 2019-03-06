@@ -10,26 +10,18 @@ export default class Create extends Component {
         body: ''
     }
 
-    submitForm = () => {
-        // var data = new FormData();
-        var data = {author: "New name",
-            title: "NEW BLOG",
-            date: "03/04/19",
-            body: " My new post has been submitted!"}
-
+    submitForm = e => {
+        e.preventDefault();
         axios.post('http://localhost:3001/posts', this.state)
-          .then((response) => {
-            console.log(response);
-            this.props.updateBlog(response.data);
+          .then(res => {
+            console.log(res);
+            this.props.updateBlog(res.data);
           })
-          .catch((error) => {
-            console.log(error);
-          });
+          .catch(err => console.log(err));
     }
 
-    handleChange = (e) => {
+    handleChange = e => {
         this.setState({[e.target.name]: e.target.value})
-        console.log(this.state)
     }
 
     render() {
@@ -46,7 +38,6 @@ export default class Create extends Component {
                     <input type="submit" value="Submit" onClick={this.submitForm}/>
                 </form>
             </div>
-            // <button onClick={this.submitForm}>Test sending</button>
         );
     };
 };

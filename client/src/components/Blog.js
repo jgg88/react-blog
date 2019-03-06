@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import Create from './Create';
 
 export default class Blog extends Component {
 
@@ -10,18 +9,16 @@ export default class Blog extends Component {
 
     render() {
         const {posts} = this.props;
-        
         return (
-            <div>
+            <div className="blog-body">
                 <div>
                     {posts.map(({id, author, title, date, body}) => (
-
                         <div key={id}>
                             <h1>{title}</h1>
                             <h2>{author}</h2>
                             <h2>{date}</h2>
                             <p>{body}</p>
-
+                            <hr/>
                         </div>
                     ))}
                 </div>
