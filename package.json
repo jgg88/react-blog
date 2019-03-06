@@ -1,0 +1,31 @@
+{
+  "name": "react-blog",
+  "version": "1.0.0",
+  "description": "A simple blog application created with React.",
+  "main": "server.js",
+  "scripts": {
+    "install-client": "npm install --prefix client",
+    "client": "npm start --prefix client",
+    "server": "json-server --watch --port 3001 api/db.json",
+    "dev": "npm run client & npm run server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jgg88/react-blog.git"
+  },
+  "author": "Joshua Gomez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jgg88/react-blog/issues"
+  },
+  "homepage": "https://github.com/jgg88/react-blog#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "concurrently": "^4.1.0",
+    "express": "^4.16.4",
+    "json-server": "^0.14.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}

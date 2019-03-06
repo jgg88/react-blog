@@ -1,0 +1,60 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "author": "name",
+      "title": "Blog Name One",
+      "date": "03/01/19",
+      "body": " this is the body text"
+    },
+    {
+      "id": 2,
+      "author": "name",
+      "title": "Blog Name Two",
+      "date": "03/02/19",
+      "body": " this is the body text"
+    },
+    {
+      "id": 3,
+      "author": "name",
+      "title": "Blog Name Three",
+      "date": "03/02/19",
+      "body": " this is the body text"
+    },
+    {
+      "id": 4,
+      "author": "name",
+      "title": "Blog Name Four",
+      "date": "03/03/19",
+      "body": " this is the body text"
+    },
+    {
+      "id": 5,
+      "author": "name",
+      "title": "Blog Name Five",
+      "date": "03/04/19",
+      "body": " this is the body text"
+    },
+    {
+      "author": "New name",
+      "title": "NEW BLOG",
+      "date": "03/04/19",
+      "body": " My new post has been submitted!",
+      "id": 6
+    },
+    {
+      "author": "author",
+      "title": "title",
+      "date": "2019-03-06T03:46:25.731Z",
+      "body": "testing the text area",
+      "id": 7
+    },
+    {
+      "author": "Joshua",
+      "title": "Blog test two",
+      "date": "2019-03-06T03:47:58.394Z",
+      "body": "text area test two",
+      "id": 8
+    }
+  ]
+}
