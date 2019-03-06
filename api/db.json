@@ -1,34 +1,6 @@
 {
   "posts": [
     {
-      "author": "Joshua",
-      "title": "Blog Name Two",
-      "date": "03/02/19",
-      "body": " this is the body text",
-      "id": 2
-    },
-    {
-      "author": "Joshua",
-      "title": "Blog Name Three",
-      "date": "03/02/19",
-      "body": " this is the body text",
-      "id": 3
-    },
-    {
-      "author": "Mustard",
-      "title": "Blog Name Four",
-      "date": "03/03/19",
-      "body": " this is the body text",
-      "id": 4
-    },
-    {
-      "id": 5,
-      "author": "name",
-      "title": "Blog Name Five",
-      "date": "03/04/19",
-      "body": " this is the body text"
-    },
-    {
       "author": "author",
       "title": "title",
       "date": "2019-03-06T03:46:25.731Z",
@@ -46,35 +18,35 @@
       "author": "Joshua",
       "title": "Test after refactoring",
       "date": "2019-03-06T04:03:15.341Z",
-      "body": "Blogasaurus Rex",
+      "body": "Testing update.",
       "id": 9
     },
     {
       "author": "Joshua",
       "title": "prevent Default?",
       "date": "2019-03-06T04:15:27.376Z",
-      "body": "testing the text area",
+      "body": "testing the text area. Testing edit with for loop",
       "id": 10
     },
     {
       "author": "Joshua",
       "title": "test with styling",
       "date": "2019-03-06T05:42:37.938Z",
-      "body": "Heyyo",
+      "body": "Heyyo. Does this update? Attempt III. Attempt IV: A New Hope.",
       "id": 11
     },
     {
-      "author": "Mustard",
-      "title": "57 Things",
+      "author": "Heinz",
+      "title": "57 Varieties",
       "date": "2019-03-06T08:15:49.576Z",
       "body": "What are the other 56?",
       "id": 12
     },
     {
       "author": "Joshua",
-      "title": "abc",
+      "title": "abcde",
       "date": "2019-03-06T08:24:55.221Z",
-      "body": "testing testing.",
+      "body": "testing testing. Edit test. Edit test again. Edit test III.",
       "id": 13
     },
     {
@@ -88,8 +60,22 @@
       "author": "Joshua",
       "title": "Testing Sort II",
       "date": "2019-03-06T09:01:20.120Z",
-      "body": "Does it work?",
+      "body": "Does it work? Edit to test whether view updates.",
       "id": 15
+    },
+    {
+      "author": "New Post",
+      "title": "New Title",
+      "date": "2019-03-06T18:34:37.884Z",
+      "body": "New Blog.",
+      "id": 16
+    },
+    {
+      "author": "Joshua",
+      "title": "Newer Title",
+      "date": "March 6th 2019",
+      "body": "Newer Blog.",
+      "id": 17
     }
   ]
 }

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Create from './Create';
 import Blog from './Blog';
 import axios from 'axios';
+import moment from 'moment';
 
 export default class Main extends Component {
 
@@ -13,15 +14,21 @@ export default class Main extends Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:3001/posts')
-            .then(res => res.json())
-            .then(json => {
+
+        axios.get('http://localhost:3001/posts')
+            .then(res => {
+                let formattedData = [];
+                res.data.forEach(post => {
+                    post.date = moment(post.date).format('MMMM Do YYYY');
+                    formattedData.push(post);
+                });
                 this.setState({
-                    posts: json,
+                    posts: formattedData,
                     showPosts: true
                 });
-          console.log(this.state.posts);
-        });
+                console.log(formattedData)
+            })
+            .catch(error => console.log(error));
     }
 
     toggleNewBlog = () => {
@@ -32,14 +39,26 @@ export default class Main extends Component {
         });
     }
 
-    updateBlog = newPost => {
+    //Add new post to state
+    updateStateForNewPost = newPost => {
         this.setState({posts: [...this.state.posts, newPost]});
     }
 
+    //Update state for edited post
+    updateStateForEdited = editedPost => {
+        let postsCopy = [...this.state.posts];
+        for (let i=0; i < postsCopy.length; i++) {
+            if (postsCopy[i].id === editedPost.id) {
+                postsCopy[i] = editedPost;
+                this.setState({posts: postsCopy});
+            }
+        }
+    };
+
+    //When an existing post has been selected for edit, pass post data to create component
     onSelect = (id) => {
         this.state.posts.forEach(post => {
             if (post.id === id) {
-                console.log(post);
                 this.setState({
                     toBeEdited: post,
                     showPosts: false,
@@ -51,14 +70,10 @@ export default class Main extends Component {
     }
 
     onDelete = id => {
-        debugger;
         axios.delete(`http://localhost:3001/posts/${id}`)
             .then(res => {
         console.log(res);
-        console.log(res.data);
-
         this.setState({posts: this.state.posts.filter(post => post.id !== id)});
-        
       })
     }
 
@@ -70,7 +85,8 @@ export default class Main extends Component {
 
                 {showCreateComponent && 
                 <Create 
-                    updateBlog={newPost => this.updateBlog(newPost)}
+                    updateStateForNewPost={newPost => this.updateStateForNewPost(newPost)}
+                    updateStateForEdited = {editedPost => this.updateStateForEdited(editedPost)}
                     edit={this.state.toBeEdited}
                     toggle={this.toggleNewBlog}
                 />}

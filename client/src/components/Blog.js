@@ -13,9 +13,9 @@ export default class Blog extends Component {
                                 <button onClick={() => this.props.onDelete(id)}><i className="fa fa-trash"></i></button>
                             </div>
                             <h1>{title}</h1>
-                            <h2>{author}</h2>
-                            <h2>{date}</h2>
-                            <p>{body}</p>
+                            <h2>written by {author}</h2>
+                            <h2>{body}</h2>
+                            <p>{date}</p>
                             <hr/>
                         </div>
                     ))}

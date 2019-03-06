@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import moment from 'moment';
 import axios from 'axios';
 
 export default class Create extends Component {
@@ -6,35 +7,8 @@ export default class Create extends Component {
     state = {
         author: '',
         title: '',
-        date: new Date(),
+        date: moment().format('MMMM Do YYYY'),
         body: ''
-    }
-
-    //Submitting a NEW POST
-    submitForm = e => {
-        e.preventDefault();
-        axios.post('http://localhost:3001/posts', this.state)
-          .then(res => {
-            console.log(res);
-            this.props.updateBlog(res.data);
-            this.props.toggle();
-          })
-          .catch(err => console.log(err));
-    }
-
-    //UPDATING an already existing post
-    updatePost = e => {
-        e.preventDefault();
-        axios.put(`http://localhost:3001/posts/${this.props.edit.id}`, this.state)
-          .then(res => {
-            console.log(res);
-            this.props.toggle();
-          })
-          .catch(err => console.log(err));
-    }
-
-    handleChange = e => {
-        this.setState({[e.target.name]: e.target.value})
     }
 
     componentWillMount() {
@@ -49,16 +23,45 @@ export default class Create extends Component {
         }
     }
 
+    //Submitting a NEW POST
+    submitForm = e => {
+        e.preventDefault();
+        axios.post('http://localhost:3001/posts', this.state)
+          .then(res => {
+            console.log(res);
+            this.props.updateStateForNewPost(res.data);
+            this.props.toggle();
+          })
+          .catch(err => console.log(err));
+    }
+
+    //UPDATING an already existing post
+    updatePost = e => {
+        e.preventDefault();
+        axios.put(`http://localhost:3001/posts/${this.props.edit.id}`, this.state)
+          .then(res => {
+            console.log(res);
+            this.props.updateStateForEdited(res.data)
+            this.props.toggle();
+          })
+          .catch(err => console.log(err));
+    }
+
+    //Update state as user inputs data
+    handleChange = e => {
+        this.setState({[e.target.name]: e.target.value})
+    }
+
     render() {
         return (
             <div className="create-body">
                 <form>
                     <label>
-                        <input type="text" name="author" placeholder="Name" onChange={this.handleChange} defaultValue={this.state.author} className="input-author"/>
+                        <input type="text" name="title" placeholder="Title" onChange={this.handleChange} defaultValue={this.state.title} className="input-title"/>
                     </label>
                     <br/>
                     <label>
-                        <input type="text" name="title" placeholder="Title" onChange={this.handleChange} defaultValue={this.state.title} className="input-title"/>
+                        <input type="text" name="author" placeholder="Name" onChange={this.handleChange} defaultValue={this.state.author} className="input-author"/>
                     </label>
                     <br/>
                     <textarea name="body" placeholder="What's on your mind?" onChange={this.handleChange} defaultValue={this.state.body} className="input-body"/>
