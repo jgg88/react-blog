@@ -41,6 +41,7 @@ export default class Main extends Component {
 
     //Add new post to state
     updateStateForNewPost = newPost => {
+        newPost.date = moment(newPost.date).format('MMMM Do YYYY');
         this.setState({posts: [...this.state.posts, newPost]});
     }
 
@@ -72,9 +73,9 @@ export default class Main extends Component {
     onDelete = id => {
         axios.delete(`http://localhost:3001/posts/${id}`)
             .then(res => {
-        console.log(res);
-        this.setState({posts: this.state.posts.filter(post => post.id !== id)});
-      })
+            console.log(res);
+            this.setState({posts: this.state.posts.filter(post => post.id !== id)});
+        });
     }
 
     render() {

@@ -7,7 +7,7 @@ export default class Create extends Component {
     state = {
         author: '',
         title: '',
-        date: moment().format('MMMM Do YYYY'),
+        date: Date(),
         body: ''
     }
 

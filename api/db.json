@@ -64,18 +64,18 @@
       "id": 15
     },
     {
-      "author": "New Post",
-      "title": "New Title",
-      "date": "2019-03-06T18:34:37.884Z",
-      "body": "New Blog.",
-      "id": 16
+      "author": "Joshua",
+      "title": "Newer Title",
+      "date": "Wed Mar 06 2019 13:39:38 GMT-0500 (Eastern Standard Time)",
+      "body": "Newer Blog.",
+      "id": 17
     },
     {
       "author": "Joshua",
-      "title": "Newer Title",
-      "date": "March 6th 2019",
-      "body": "Newer Blog.",
-      "id": 17
+      "title": "Testing the date",
+      "date": "Wed Mar 06 2019 13:41:21 GMT-0500 (Eastern Standard Time)",
+      "body": "C'mon, work why don't ya",
+      "id": 18
     }
   ]
 }

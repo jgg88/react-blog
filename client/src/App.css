@@ -37,6 +37,11 @@ header h1 span {
     font-family: 'Josefin Sans', sans-serif;
 }
 
+.blog-body h3 {
+    font-style: italic;
+    margin-top: 30px;
+}
+
 .new-btn {
     width: 100px;
     height: 46px;
