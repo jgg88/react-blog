@@ -14,7 +14,6 @@ export default class Main extends Component {
     }
 
     componentDidMount() {
-
         axios.get('http://localhost:3001/posts')
             .then(res => {
                 let formattedData = [];
@@ -31,6 +30,7 @@ export default class Main extends Component {
             .catch(error => console.log(error));
     }
 
+    //Toggle views between Create component and Blog component
     toggleNewBlog = () => {
         this.setState({
             showPosts: !this.state.showPosts,
@@ -70,6 +70,7 @@ export default class Main extends Component {
         })
     }
 
+    //Delete post
     onDelete = id => {
         axios.delete(`http://localhost:3001/posts/${id}`)
             .then(res => {
