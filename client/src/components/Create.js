@@ -5,7 +5,7 @@ export default class Create extends Component {
     state = {
         author: '',
         title: '',
-        date: Date(),
+        date: new Date(),
         body: ''
     }
 
@@ -15,7 +15,7 @@ export default class Create extends Component {
             this.setState({
                 author: this.props.edit.author,
                 title: this.props.edit.title,
-                date: Date(),
+                date: new Date(),
                 body: this.props.edit.body,
             })
         }

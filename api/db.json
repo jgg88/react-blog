@@ -9,13 +9,6 @@
     },
     {
       "author": "Joshua",
-      "title": "prevent Default?",
-      "date": "2019-03-06T04:15:27.376Z",
-      "body": "testing the text area. Testing edit with for loop",
-      "id": 10
-    },
-    {
-      "author": "Joshua",
       "title": "test with styling",
       "date": "2019-03-06T05:42:37.938Z",
       "body": "Heyyo. Does this update? Attempt III. Attempt IV: A New Hope.",
@@ -27,34 +20,6 @@
       "date": "2019-03-06T08:15:49.576Z",
       "body": "What are the other 56?",
       "id": 12
-    },
-    {
-      "author": "Joshua",
-      "title": "abcde",
-      "date": "2019-03-06T08:24:55.221Z",
-      "body": "testing testing. Edit test. Edit test again. Edit test III.",
-      "id": 13
-    },
-    {
-      "author": "Joshua",
-      "title": "Testing Sort",
-      "date": "2019-03-06T08:59:14.961Z",
-      "body": "Hope this shows up at the top of the list!",
-      "id": 14
-    },
-    {
-      "author": "Joshua",
-      "title": "Testing Sort II",
-      "date": "2019-03-06T09:01:20.120Z",
-      "body": "Does it work? Edit to test whether view updates.",
-      "id": 15
-    },
-    {
-      "author": "Joshua",
-      "title": "Newer Title",
-      "date": "Wed Mar 06 2019 13:39:38 GMT-0500 (Eastern Standard Time)",
-      "body": "Newer Blog.",
-      "id": 17
     },
     {
       "author": "Joshua",
@@ -90,27 +55,6 @@
       "date": "Wed Mar 06 2019 14:09:29 GMT-0500 (Eastern Standard Time)",
       "body": "Hodor. Hodor HODOR hodor, hodor hodor, hodor. Hodor hodor hodor hodor?! Hodor, hodor. Hodor. Hodor, HODOR hodor, hodor hodor; hodor hodor hodor, hodor. Hodor hodor, hodor, hodor hodor. Hodor. Hodor hodor... Hodor hodor hodor hodor! Hodor. Hodor hodor hodor - hodor, hodor, hodor hodor. Hodor. Hodor hodor hodor hodor hodor - hodor? Hodor HODOR hodor, hodor hodor hodor hodor?! Hodor. Hodor hodor... Hodor hodor hodor?",
       "id": 22
-    },
-    {
-      "author": "josh",
-      "title": "Test after refactoring",
-      "date": "Wed Mar 06 2019 18:20:32 GMT-0500 (Eastern Standard Time)",
-      "body": "620.",
-      "id": 25
-    },
-    {
-      "author": "Joshua",
-      "title": "Book one",
-      "date": "Wed Mar 06 2019 18:34:47 GMT-0500 (Eastern Standard Time)",
-      "body": "hi there. Hiya.",
-      "id": 26
-    },
-    {
-      "author": "Joshua",
-      "title": "Editing a New Post",
-      "date": "Wed Mar 06 2019 18:40:27 GMT-0500 (Eastern Standard Time)",
-      "body": "This is the text body for my new post!",
-      "id": 27
     }
   ]
 }
