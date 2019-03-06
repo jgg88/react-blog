@@ -10,21 +10,25 @@ export default class Create extends Component {
         body: ''
     }
 
+    //Submitting a NEW POST
     submitForm = e => {
         e.preventDefault();
         axios.post('http://localhost:3001/posts', this.state)
           .then(res => {
             console.log(res);
             this.props.updateBlog(res.data);
+            this.props.toggle();
           })
           .catch(err => console.log(err));
     }
 
+    //UPDATING an already existing post
     updatePost = e => {
         e.preventDefault();
         axios.put(`http://localhost:3001/posts/${this.props.edit.id}`, this.state)
           .then(res => {
             console.log(res);
+            this.props.toggle();
           })
           .catch(err => console.log(err));
     }
@@ -34,6 +38,7 @@ export default class Create extends Component {
     }
 
     componentWillMount() {
+        //Checks whether inputs need to pre-populate, incase of EDIT to existing post
         if (this.props.edit) {
             this.setState({
                 author: this.props.edit.author,
@@ -46,17 +51,19 @@ export default class Create extends Component {
 
     render() {
         return (
-            <div>
+            <div className="create-body">
                 <form>
                     <label>
-                        <input type="text" name="author" placeholder="New Blog, who this?" onChange={this.handleChange} defaultValue={this.state.author}/>
+                        <input type="text" name="author" placeholder="Name" onChange={this.handleChange} defaultValue={this.state.author} className="input-author"/>
                     </label>
+                    <br/>
                     <label>
-                        <input type="text" name="title" placeholder="Title" onChange={this.handleChange} defaultValue={this.state.title}/>
+                        <input type="text" name="title" placeholder="Title" onChange={this.handleChange} defaultValue={this.state.title} className="input-title"/>
                     </label>
-                    <input type="textarea" name="body" placeholder="What's on your mind?" onChange={this.handleChange} defaultValue={this.state.body}/>
-
-                    {this.props.edit ? <input type="submit" value="Update" onClick={this.updatePost}/> : <input type="submit" value="Add" onClick={this.submitForm}/>}
+                    <br/>
+                    <textarea name="body" placeholder="What's on your mind?" onChange={this.handleChange} defaultValue={this.state.body} className="input-body"/>
+                    <br/>
+                    {this.props.edit ? <input type="submit" value="Update" onClick={this.updatePost} className="submit-btn"/> : <input type="submit" value="Add" onClick={this.submitForm} className="submit-btn"/>}
                 </form>
             </div>
         );

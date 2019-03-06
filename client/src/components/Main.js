@@ -72,6 +72,7 @@ export default class Main extends Component {
                 <Create 
                     updateBlog={newPost => this.updateBlog(newPost)}
                     edit={this.state.toBeEdited}
+                    toggle={this.toggleNewBlog}
                 />}
 
                 {showPosts && 
