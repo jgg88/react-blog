@@ -22,7 +22,7 @@ npm install
 Client dependencies
 
 ```
-npm run client-install
+npm run install-client
 ```
 ### Running dev environment
 
