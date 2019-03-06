@@ -42,14 +42,33 @@ header h1 span {
     height: 46px;
     border-radius: 16px;
     font-size: 18px;
-    border-color: #d80606;
+    border-color: #980c0c;
     position: fixed;
     right: 5%;
     top: 35px;
 }
 
 .new-btn:hover {
-    background-color: #d80606;
+    background-color: #980c0c;
     color: #FFFFFF;
     border-color: #FFFFFF;
+}
+
+.icons {
+    width: 100%;
+    text-align: right;
+}
+
+.icons button {
+    border-style: none;
+    height: 40px;
+    width: 40px;
+    font-size: 25px;
+    margin-left: 10px;
+    color: #980c0c;
+}
+
+.icons button:hover {
+    color: #FFFFFF;
+    background-color: #980c0c;
 }

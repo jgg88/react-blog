@@ -14,6 +14,10 @@ export default class Blog extends Component {
                 <div>
                     {posts.map(({id, author, title, date, body}) => (
                         <div key={id}>
+                            <div className="icons">
+                                <button><i className="fa fa-pencil"></i></button>
+                                <button onClick={() => this.props.onDelete(id)}><i className="fa fa-trash"></i></button>
+                            </div>
                             <h1>{title}</h1>
                             <h2>{author}</h2>
                             <h2>{date}</h2>

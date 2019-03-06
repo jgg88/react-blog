@@ -1,13 +1,6 @@
 {
   "posts": [
     {
-      "id": 1,
-      "author": "name",
-      "title": "Blog Name One",
-      "date": "03/01/19",
-      "body": " this is the body text"
-    },
-    {
       "id": 2,
       "author": "name",
       "title": "Blog Name Two",
@@ -69,6 +62,13 @@
       "date": "2019-03-06T04:15:27.376Z",
       "body": "testing the text area",
       "id": 10
+    },
+    {
+      "author": "Joshua",
+      "title": "test with styling",
+      "date": "2019-03-06T05:42:37.938Z",
+      "body": "Heyyo",
+      "id": 11
     }
   ]
 }

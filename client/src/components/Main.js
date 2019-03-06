@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Create from './Create';
 import Blog from './Blog';
+import axios from 'axios';
 
 export default class Main extends Component {
 
@@ -33,6 +34,18 @@ export default class Main extends Component {
         this.setState({posts: [...this.state.posts, newPost]});
     }
 
+    onDelete = id => {
+        debugger;
+        axios.delete(`http://localhost:3001/posts/${id}`)
+            .then(res => {
+        console.log(res);
+        console.log(res.data);
+
+        this.setState({posts: this.state.posts.filter(post => post.id !== id)});
+        
+      })
+    }
+
     render() {
         const {posts, showPosts, showCreateComponent} = this.state;
         return (
@@ -41,7 +54,7 @@ export default class Main extends Component {
 
                 {showCreateComponent && <Create updateBlog={newPost => this.updateBlog(newPost)} />}
 
-                {showPosts && <Blog posts={posts} />}
+                {showPosts && <Blog posts={posts} onDelete={id => this.onDelete(id)}/>}
             </div>
         );
     };
