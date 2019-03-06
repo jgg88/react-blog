@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import axios from 'axios';
 
 export default class Create extends Component {
 
@@ -16,34 +15,10 @@ export default class Create extends Component {
             this.setState({
                 author: this.props.edit.author,
                 title: this.props.edit.title,
-                date: this.props.edit.date,
+                date: Date(),
                 body: this.props.edit.body,
             })
         }
-    }
-
-    //Submitting a NEW POST
-    submitForm = e => {
-        e.preventDefault();
-        axios.post('http://localhost:3001/posts', this.state)
-          .then(res => {
-            console.log(res);
-            this.props.updateStateForNewPost(res.data);
-            this.props.toggle();
-          })
-          .catch(err => console.log(err));
-    }
-
-    //UPDATING an already existing post
-    updatePost = e => {
-        e.preventDefault();
-        axios.put(`http://localhost:3001/posts/${this.props.edit.id}`, this.state)
-          .then(res => {
-            console.log(res);
-            this.props.updateStateForEdited(res.data)
-            this.props.toggle();
-          })
-          .catch(err => console.log(err));
     }
 
     //Update state as user inputs data
@@ -65,7 +40,7 @@ export default class Create extends Component {
                     <br/>
                     <textarea name="body" placeholder="What's on your mind?" onChange={this.handleChange} defaultValue={this.state.body} className="input-body"/>
                     <br/>
-                    {this.props.edit ? <input type="submit" value="Update" onClick={this.updatePost} className="submit-btn"/> : <input type="submit" value="Add" onClick={this.submitForm} className="submit-btn"/>}
+                    {this.props.edit ? <input type="submit" value="Update" onClick={(e) => {this.props.updatePost(e, this.state)}} className="submit-btn"/> : <input type="submit" value="Add" onClick={(e) => {this.props.submitNewPost(e, this.state)}} className="submit-btn"/>}
                 </form>
             </div>
         );

@@ -80,7 +80,7 @@
     {
       "author": "What, you mean you don't know?",
       "title": "Hipster Ipsum",
-      "date": "March 6th 2019",
+      "date": "Wed Mar 06 2019 17:41:07 GMT-0500 (Eastern Standard Time)",
       "body": "Occupy McSweeney's roof party biodiesel letterpress asymmetrical. Sustainable brunch pug, put a bird on it tilde lumbersexual gluten-free banh mi chambray mumblecore pickled. Yr retro hashtag, pork belly drinking vinegar vegan Blue Bottle disrupt butcher. Health goth small batch plaid vegan. Twee gluten-free sustainable wayfarers VHS. Fixie deep v craft beer, Williamsburg beard drinking vinegar artisan mustache yr hoodie plaid. Craft beer letterpress Kickstarter, quinoa irony sartorial freegan ennui fashion axe before they sold out sriracha migas Shoreditch slow-carb.",
       "id": 21
     },
@@ -90,6 +90,27 @@
       "date": "Wed Mar 06 2019 14:09:29 GMT-0500 (Eastern Standard Time)",
       "body": "Hodor. Hodor HODOR hodor, hodor hodor, hodor. Hodor hodor hodor hodor?! Hodor, hodor. Hodor. Hodor, HODOR hodor, hodor hodor; hodor hodor hodor, hodor. Hodor hodor, hodor, hodor hodor. Hodor. Hodor hodor... Hodor hodor hodor hodor! Hodor. Hodor hodor hodor - hodor, hodor, hodor hodor. Hodor. Hodor hodor hodor hodor hodor - hodor? Hodor HODOR hodor, hodor hodor hodor hodor?! Hodor. Hodor hodor... Hodor hodor hodor?",
       "id": 22
+    },
+    {
+      "author": "josh",
+      "title": "Test after refactoring",
+      "date": "Wed Mar 06 2019 18:20:32 GMT-0500 (Eastern Standard Time)",
+      "body": "620.",
+      "id": 25
+    },
+    {
+      "author": "Joshua",
+      "title": "Book one",
+      "date": "Wed Mar 06 2019 18:34:47 GMT-0500 (Eastern Standard Time)",
+      "body": "hi there. Hiya.",
+      "id": 26
+    },
+    {
+      "author": "Joshua",
+      "title": "Editing a New Post",
+      "date": "Wed Mar 06 2019 18:40:27 GMT-0500 (Eastern Standard Time)",
+      "body": "This is the text body for my new post!",
+      "id": 27
     }
   ]
 }

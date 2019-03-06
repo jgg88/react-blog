@@ -14,20 +14,21 @@ export default class Main extends Component {
     }
 
     componentDidMount() {
+        //Fetch Blog posts
         axios.get('http://localhost:3001/posts')
-            .then(res => {
-                let formattedData = [];
-                res.data.forEach(post => {
-                    post.date = moment(post.date).format('MMMM Do YYYY');
-                    formattedData.push(post);
-                });
-                this.setState({
-                    posts: formattedData,
-                    showPosts: true
-                });
-                console.log(formattedData)
-            })
-            .catch(error => console.log(error));
+        .then(res => {
+            let formattedData = [];
+            res.data.forEach(post => {
+                post.date = moment(post.date).format('MMMM Do YYYY');
+                formattedData.push(post);
+            });
+            this.setState({
+                posts: formattedData,
+                showPosts: true
+            });
+            console.log(formattedData)
+        })
+        .catch(error => console.log(error));
     }
 
     //Toggle views between Create component and Blog component
@@ -39,22 +40,51 @@ export default class Main extends Component {
         });
     }
 
-    //Add new post to state
-    updateStateForNewPost = newPost => {
-        newPost.date = moment(newPost.date).format('MMMM Do YYYY');
-        this.setState({posts: [...this.state.posts, newPost]});
+    //Submitting a NEW POST
+    submitNewPost = (event, formState) => {
+        console.log(formState)
+        event.preventDefault();
+        axios.post('http://localhost:3001/posts', formState)
+            .then(res => {
+            console.log(res);
+            // this.props.updateStateForNewPost(res.data);
+            let newPost = res.data
+            newPost.date = moment(newPost.date).format('MMMM Do YYYY');
+            this.setState({posts: [...this.state.posts, newPost]});
+            this.toggleNewBlog();
+            })
+            .catch(err => console.log(err));
     }
 
-    //Update state for edited post
-    updateStateForEdited = editedPost => {
-        let postsCopy = [...this.state.posts];
-        for (let i=0; i < postsCopy.length; i++) {
-            if (postsCopy[i].id === editedPost.id) {
-                postsCopy[i] = editedPost;
-                this.setState({posts: postsCopy});
+    //UPDATING an already existing post
+    updatePost = (e, formState) => {
+        e.preventDefault();
+        axios.put(`http://localhost:3001/posts/${this.state.toBeEdited.id}`, formState)
+            .then(res => {
+            console.log(res);
+            let editedPost = res.data;
+            // this.props.updateStateForEdited(res.data)
+            let postsCopy = [...this.state.posts];
+            editedPost.date = moment(editedPost.date).format('MMMM Do YYYY');
+            for (let i=0; i < postsCopy.length; i++) {
+                if (postsCopy[i].id === editedPost.id) {
+                    postsCopy[i] = editedPost;
+                    this.setState({posts: postsCopy});
+                }
             }
-        }
-    };
+            this.toggleNewBlog();
+            })
+            .catch(err => console.log(err));
+    }
+
+    //DELETE selected post
+    onDelete = id => {
+        axios.delete(`http://localhost:3001/posts/${id}`)
+            .then(res => {
+            console.log(res);
+            this.setState({posts: this.state.posts.filter(post => post.id !== id)});
+        });
+    }
 
     //When an existing post has been selected for edit, pass post data to create component
     onSelect = (id) => {
@@ -66,17 +96,7 @@ export default class Main extends Component {
                     showCreateComponent: true,
                 })
             }
-
         })
-    }
-
-    //Delete post
-    onDelete = id => {
-        axios.delete(`http://localhost:3001/posts/${id}`)
-            .then(res => {
-            console.log(res);
-            this.setState({posts: this.state.posts.filter(post => post.id !== id)});
-        });
     }
 
     render() {
@@ -87,10 +107,9 @@ export default class Main extends Component {
 
                 {showCreateComponent && 
                 <Create 
-                    updateStateForNewPost={newPost => this.updateStateForNewPost(newPost)}
-                    updateStateForEdited = {editedPost => this.updateStateForEdited(editedPost)}
+                    updatePost={this.updatePost}
+                    submitNewPost={this.submitNewPost}
                     edit={this.state.toBeEdited}
-                    toggle={this.toggleNewBlog}
                 />}
 
                 {showPosts && 
