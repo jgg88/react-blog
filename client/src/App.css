@@ -76,7 +76,11 @@ header h1 span {
 .create-body {
     text-align: left;
     padding-top: 20px;
-    margin-left: 5%;
+}
+
+.create-body form {
+    width: 610px;
+    margin-left: calc(50% - 305px);
 }
 
 .input-author, .input-title {

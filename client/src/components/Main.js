@@ -66,7 +66,7 @@ export default class Main extends Component {
         const {posts, showPosts, showCreateComponent} = this.state;
         return (
             <div className="main">
-                <button onClick={this.toggleNewBlog} className="new-btn">NEW</button>
+                <button onClick={this.toggleNewBlog} className="new-btn">{showPosts ? 'NEW' : 'X'}</button>
 
                 {showCreateComponent && 
                 <Create 
@@ -77,7 +77,7 @@ export default class Main extends Component {
 
                 {showPosts && 
                 <Blog 
-                    posts={posts}
+                    posts={posts.sort((a, b) => b.id - a.id)}
                     onDelete={id => this.onDelete(id)}
                     onSelect={id => this.onSelect(id)}
                 />}
