@@ -8,7 +8,8 @@ export default class Main extends Component {
     state = {
         posts: [],
         showPosts: false,
-        showCreateComponent: false
+        showCreateComponent: false,
+        toBeEdited: null
     }
 
     componentDidMount() {
@@ -26,12 +27,27 @@ export default class Main extends Component {
     toggleNewBlog = () => {
         this.setState({
             showPosts: !this.state.showPosts,
-            showCreateComponent: !this.state.showCreateComponent
+            showCreateComponent: !this.state.showCreateComponent,
+            toBeEdited: null
         });
     }
 
     updateBlog = newPost => {
         this.setState({posts: [...this.state.posts, newPost]});
+    }
+
+    onSelect = (id) => {
+        this.state.posts.forEach(post => {
+            if (post.id === id) {
+                console.log(post);
+                this.setState({
+                    toBeEdited: post,
+                    showPosts: false,
+                    showCreateComponent: true,
+                })
+            }
+
+        })
     }
 
     onDelete = id => {
@@ -52,9 +68,18 @@ export default class Main extends Component {
             <div className="main">
                 <button onClick={this.toggleNewBlog} className="new-btn">NEW</button>
 
-                {showCreateComponent && <Create updateBlog={newPost => this.updateBlog(newPost)} />}
+                {showCreateComponent && 
+                <Create 
+                    updateBlog={newPost => this.updateBlog(newPost)}
+                    edit={this.state.toBeEdited}
+                />}
 
-                {showPosts && <Blog posts={posts} onDelete={id => this.onDelete(id)}/>}
+                {showPosts && 
+                <Blog 
+                    posts={posts}
+                    onDelete={id => this.onDelete(id)}
+                    onSelect={id => this.onSelect(id)}
+                />}
             </div>
         );
     };

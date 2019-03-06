@@ -1,12 +1,6 @@
 import React, {Component} from 'react';
 
 export default class Blog extends Component {
-
-    constructor(props) {
-        super(props)
-        console.log(props)
-    }
-
     render() {
         const {posts} = this.props;
         return (
@@ -15,7 +9,7 @@ export default class Blog extends Component {
                     {posts.map(({id, author, title, date, body}) => (
                         <div key={id}>
                             <div className="icons">
-                                <button><i className="fa fa-pencil"></i></button>
+                                <button onClick={() => this.props.onSelect(id)}><i className="fa fa-pencil"></i></button>
                                 <button onClick={() => this.props.onDelete(id)}><i className="fa fa-trash"></i></button>
                             </div>
                             <h1>{title}</h1>

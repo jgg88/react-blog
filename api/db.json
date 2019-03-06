@@ -8,11 +8,11 @@
       "body": " this is the body text"
     },
     {
-      "id": 3,
-      "author": "name",
+      "author": "Joshua",
       "title": "Blog Name Three",
       "date": "03/02/19",
-      "body": " this is the body text"
+      "body": " this is the body text",
+      "id": 3
     },
     {
       "id": 4,
