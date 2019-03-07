@@ -47,7 +47,6 @@ export default class Main extends Component {
         axios.post('http://localhost:3001/posts', formState)
             .then(res => {
             console.log(res);
-            // this.props.updateStateForNewPost(res.data);
             let newPost = res.data
             newPost.date = moment(newPost.date).format('MMMM Do YYYY');
             this.setState({posts: [...this.state.posts, newPost]});
@@ -63,7 +62,6 @@ export default class Main extends Component {
             .then(res => {
             console.log(res);
             let editedPost = res.data;
-            // this.props.updateStateForEdited(res.data)
             let postsCopy = [...this.state.posts];
             editedPost.date = moment(editedPost.date).format('MMMM Do YYYY');
             for (let i=0; i < postsCopy.length; i++) {
