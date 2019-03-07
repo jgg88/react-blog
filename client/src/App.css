@@ -117,3 +117,7 @@ header h1 span {
     color: #FFFFFF;
     border-color: #FFFFFF;
 }
+
+button:focus {
+    outline: 0;
+}
